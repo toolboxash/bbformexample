@@ -1,1 +1,0 @@
-../../DTTableViewManager/DTTableViewManager/DTViewConfiguration.h
