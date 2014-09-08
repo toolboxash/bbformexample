@@ -1,1 +1,1 @@
-/Users/ash/GIT/toolbox/bbformexample/Pods/DTTableViewManager/DTTableViewManager/DTTableViewCell.h
+../../DTTableViewManager/DTTableViewManager/DTTableViewCell.h

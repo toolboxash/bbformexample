@@ -1,1 +1,1 @@
-/Users/ash/GIT/toolbox/bbformexample/Pods/DTTableViewManager/DTTableViewManager/DTSectionModel+HeaderFooterModel.h
+../../DTTableViewManager/DTTableViewManager/DTSectionModel+HeaderFooterModel.h

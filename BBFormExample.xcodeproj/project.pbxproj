@@ -64,6 +64,7 @@
 		5E9C766819BE2EB90023A623 /* WUQuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9C766519BE2EB90023A623 /* WUQuestionsViewController.m */; };
 		5E9C766919BE2EB90023A623 /* WUQuestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9C766719BE2EB90023A623 /* WUQuestionCell.m */; };
 		5E9C766C19BE40050023A623 /* WUQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9C766B19BE40050023A623 /* WUQuestion.m */; };
+		5E9C766F19BE46950023A623 /* WUDataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9C766E19BE46950023A623 /* WUDataCache.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,6 +184,8 @@
 		5E9C766719BE2EB90023A623 /* WUQuestionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WUQuestionCell.m; sourceTree = "<group>"; };
 		5E9C766A19BE40050023A623 /* WUQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WUQuestion.h; sourceTree = "<group>"; };
 		5E9C766B19BE40050023A623 /* WUQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WUQuestion.m; sourceTree = "<group>"; };
+		5E9C766D19BE46950023A623 /* WUDataCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WUDataCache.h; sourceTree = "<group>"; };
+		5E9C766E19BE46950023A623 /* WUDataCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WUDataCache.m; sourceTree = "<group>"; };
 		96E557275E8A436AA60E534A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -250,6 +253,8 @@
 				5E9C760B19BE24640023A623 /* BBFormValidation */,
 				5E9C75C119BE24190023A623 /* AppDelegate.h */,
 				5E9C75C219BE24190023A623 /* AppDelegate.m */,
+				5E9C766D19BE46950023A623 /* WUDataCache.h */,
+				5E9C766E19BE46950023A623 /* WUDataCache.m */,
 				5E9C766119BE27280023A623 /* WUQuestionViewController.h */,
 				5E9C766219BE27280023A623 /* WUQuestionViewController.m */,
 				5E9C766419BE2EB90023A623 /* WUQuestionsViewController.h */,
@@ -531,6 +536,7 @@
 				5E9C764519BE24640023A623 /* BBNibCache.m in Sources */,
 				5E9C764019BE24640023A623 /* BBFloatingLabelTextField.m in Sources */,
 				5E9C765819BE24640023A623 /* BBValidatorAccept.m in Sources */,
+				5E9C766F19BE46950023A623 /* WUDataCache.m in Sources */,
 				5E9C766C19BE40050023A623 /* WUQuestion.m in Sources */,
 				5E9C765319BE24640023A623 /* BBConditionNumeric.m in Sources */,
 				5E9C765419BE24640023A623 /* BBConditionOr.m in Sources */,

@@ -4,12 +4,22 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-BaseModel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-DTModelStorage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Pods-DTTableViewManager.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-HRCoder.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -27,22 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1BCF8E67E5D64656A4653278</key>
+		<key>13E3A80FE55B4AC085012687</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B8EAC17329DE46D5B338BB07</key>
+		<key>8085C1637BEB45A9ADAEF151</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BC697D0F682A432E9DAB995C</key>
+		<key>BA40722C2DC84761B97DC3A5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C9B6F6D5A3C941D092849871</key>
+		<key>D8CDB2FB0D304BEBAAF87BF4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E6F623851E544B26B1359BB9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E7764A10CB4D4BCFBB1A41F2</key>
 		<dict>
 			<key>primary</key>
 			<true/>

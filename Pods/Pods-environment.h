@@ -6,6 +6,12 @@
 // project.
 
 
+// BaseModel
+#define COCOAPODS_POD_AVAILABLE_BaseModel
+#define COCOAPODS_VERSION_MAJOR_BaseModel 2
+#define COCOAPODS_VERSION_MINOR_BaseModel 6
+#define COCOAPODS_VERSION_PATCH_BaseModel 3
+
 // DTModelStorage
 #define COCOAPODS_POD_AVAILABLE_DTModelStorage
 #define COCOAPODS_VERSION_MAJOR_DTModelStorage 0
@@ -47,6 +53,12 @@
 #define COCOAPODS_VERSION_MAJOR_DTTableViewManager 2
 #define COCOAPODS_VERSION_MINOR_DTTableViewManager 7
 #define COCOAPODS_VERSION_PATCH_DTTableViewManager 3
+
+// HRCoder
+#define COCOAPODS_POD_AVAILABLE_HRCoder
+#define COCOAPODS_VERSION_MAJOR_HRCoder 1
+#define COCOAPODS_VERSION_MINOR_HRCoder 3
+#define COCOAPODS_VERSION_PATCH_HRCoder 1
 
 // PureLayout
 #define COCOAPODS_POD_AVAILABLE_PureLayout

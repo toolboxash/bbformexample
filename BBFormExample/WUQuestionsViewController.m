@@ -9,6 +9,7 @@
 #import "WUQuestionsViewController.h"
 #import "WUQuestionCell.h"
 #import "WUQuestion.h"
+#import "WUDataCache.h"
 #import "DTMemoryStorage+UpdateWithoutAnimations.h"
 
 @interface WUQuestionsViewController ()
@@ -55,9 +56,27 @@
         {
             [self.memoryStorage deleteSections: [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.memoryStorage.sections.count)]];
         }
-//        [self.memoryStorage addItems:[WUClientCache sharedInstance].questions];
+        [self.memoryStorage addItems:[WUDataCache sharedInstance].questions];
         [self.tableView reloadData];
     }];
+}
+
+
+- (IBAction)editPressed:(id)sender {
+    // set the table into edit mode
+    if (self.tableView.editing == NO)
+    {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                                                                              target:self
+                                                                                              action:@selector(editPressed:)];
+        [self.tableView setEditing:YES animated:YES];
+    }else {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit
+                                                                                              target:self
+                                                                                              action:@selector(editPressed:)];
+        [self.tableView setEditing:NO animated:YES];
+    }
+
 }
 
 - (IBAction)unwindToQuestionsController:(UIStoryboardSegue *)unwindSegue
@@ -67,28 +86,29 @@
 }
 
 
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return NO;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 {
-/*
-    // lets track selection state ourselvs
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    WUQuestion *question = (WUQuestion*)[self.memoryStorage objectAtIndexPath:indexPath];
-    
-    // send a whatsup for this question
-    [SVProgressHUD showWithStatus:@"Sending..." maskType:SVProgressHUDMaskTypeClear];
-    [[WUClient sharedClient] createWhatsUpWithQuestion:question forUserId:self.contactUserId success:^(id object)
-     {
-         [SVProgressHUD showSuccessWithStatus:@"Sent!"];
-         [self.navigationController popToRootViewControllerAnimated:YES];
-         [[NSNotificationCenter defaultCenter] postNotificationName:WUWhatsUpsOutChangedNotification object:nil];
-     }failure:^(NSError *error){
-         [SVProgressHUD dismiss];
-         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                         message:[error localizedDescription]
-                                                        delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-         [alert show];
-     }];
-*/
+
+}
+
+- (void)tableView: (UITableView *)tableView commitEditingStyle: (UITableViewCellEditingStyle)editingStyle forRowAtIndexPath: (NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        WUQuestion *question = (WUQuestion*)[self.memoryStorage objectAtIndexPath:indexPath];
+        if (question)
+        {
+            // we need to replace the parse functionalty to post an object change back to server
+            [[WUDataCache sharedInstance].questions removeObject:question];
+            [[WUDataCache sharedInstance] save];
+            [self.memoryStorage removeItem:question];
+        }
+    }
 }
 
 @end

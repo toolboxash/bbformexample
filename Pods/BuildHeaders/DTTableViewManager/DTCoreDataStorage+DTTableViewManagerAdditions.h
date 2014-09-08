@@ -1,1 +1,1 @@
-/Users/ash/GIT/toolbox/bbformexample/Pods/DTTableViewManager/DTTableViewManager/DTCoreDataStorage+DTTableViewManagerAdditions.h
+../../DTTableViewManager/DTTableViewManager/DTCoreDataStorage+DTTableViewManagerAdditions.h

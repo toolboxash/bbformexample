@@ -1,1 +1,1 @@
-/Users/ash/GIT/toolbox/bbformexample/Pods/DTTableViewManager/DTTableViewManager/DTDefaultCellModel.h
+../../DTTableViewManager/DTTableViewManager/DTDefaultCellModel.h

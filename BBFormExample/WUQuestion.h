@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Toolbox. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseModel.h"
 
-@interface WUQuestion : NSObject
+@interface WUQuestion : BaseModel
 
 @property (nonatomic, strong) NSString *question;
 @property (nonatomic, strong) NSArray *answers;

@@ -7,6 +7,8 @@
 //
 
 #import "WUQuestionViewController.h"
+#import "WUQuestion.h"
+#import "WUDataCache.h"
 #import "BBFloatingLabelTextField.h"
 #import "BBFloatingLabelSelectField.h"
 #import "BBFormValidator.h"
@@ -39,9 +41,12 @@
 {
     [super viewDidLoad];
 
-    
+
+    // create a basic validation condition
     BBConditionPresent *present = [[BBConditionPresent alloc] initWithLocalizedViolationString:NSLocalizedString(@"Please complete all fields", @"Please complete all fields")];
     
+    
+    // build the model for the form
     model = [NSMutableArray arrayWithCapacity:10];
     [model addObject:[BBFormTextFieldElement textInputElementWithID:0 placeholderText:@"Question" value:nil delegate:self]];
     ((BBFormTextFieldElement*)model.lastObject).validator = [[BBValidator alloc] initWithCondition:present,nil ];
@@ -55,6 +60,9 @@
     [model addObject:[BBFormSelectFieldElement selectElementWithID:4 labelText:@"Expire after" values:@[@"1 minute",@"5 minutes",@"15 minutes",@"1 hour"] delegate:self]];
     ((BBFormSelectFieldElement*)model.lastObject).validator = [[BBValidator alloc] initWithCondition:present,nil ];
 
+    
+    // normally we would be putting each field in a table, but this is an explicitly built form in interface builder
+    // so we need to configure the components
     [self.questionFloatingTextField updateWithElement:model[0]];
     [self.answer1FloatingTextField updateWithElement:model[1]];
     [self.answer2FloatingTextField updateWithElement:model[2]];
@@ -62,15 +70,10 @@
     [self.durationFloatingSelectField updateWithElement:model[4]];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 - (IBAction)donePressed:(id)sender {
     
-    // validate it
+    // run the validations and display any validations as an alert
     for (BBFormElement *element in model)
     {
         BBValidator *validator = (BBValidator*)element.validator;
@@ -89,20 +92,20 @@
         }
     }
 
-    // create a new question.. should we reflect this on the server so we can track questions?
-    // for now lets just create it locally
-//    WUQuestion *question = [WUQuestion new];
-//    question.question = ((BBFormTextFieldElement*)model[0]).value;
-//    question.answers = @[((BBFormTextFieldElement*)model[1]).value,
-//                         ((BBFormTextFieldElement*)model[2]).value,
-//                         ((BBFormTextFieldElement*)model[3]).value];
-//    
-//    // we need to
-//    NSArray *expireOptions = @[@60,@300,@900,@3600];
-//    question.expireAfter = [expireOptions[((BBFormSelectFieldElement*)model[4]).index] integerValue];
+    // create an item to persist what weve just entered
+    WUQuestion *question = [WUQuestion new];
+    question.question = ((BBFormTextFieldElement*)model[0]).value;
+    question.answers = @[((BBFormTextFieldElement*)model[1]).value,
+                         ((BBFormTextFieldElement*)model[2]).value,
+                         ((BBFormTextFieldElement*)model[3]).value];
     
-//    [[WUClientCache sharedInstance].questions addObject:question];
-//    [[WUClientCache sharedInstance] save];
+    // we need to
+    NSArray *expireOptions = @[@60,@300,@900,@3600];
+    question.expireAfter = [expireOptions[((BBFormSelectFieldElement*)model[4]).index] integerValue];
+
+    [[WUDataCache sharedInstance].questions addObject:question];
+    [[WUDataCache sharedInstance] save];
+    
     [self performSegueWithIdentifier:@"unwindToQuestionsController" sender:self];
 }
 
